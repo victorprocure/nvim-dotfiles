@@ -15,7 +15,7 @@ return {
   },
   lua = {
     filetypes = { 'lua' },
-    parsers = { 'lua', 'luaadoc' },
+    parsers = { 'lua', 'luadoc' },
     servers = { lua_ls = 'lua-language-server' },
     formatters = { stylua = 'stylua' },
   },
