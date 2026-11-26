@@ -1,17 +1,14 @@
 --- Formatting ---
-local prettier = { 'prettier' } --- conform uses the packages own node_modules
+local formatters_by_ft = {}
+for _, lang in pairs(require('config.languages')) do
+  if lang.formatters then
+    for _, ft in ipairs(lang.filetypes or {}) do
+      formatters_by_ft[ft] = vim.tbl_keys(lang.formatters)
+    end
+  end
+end
 require('conform').setup({
-  formatters_by_ft = {
-    javascript = prettier,
-    javascriptreact = prettier,
-    typescript = prettier,
-    typescriptreact = prettier,
-    json = prettier,
-    jsonc = prettier,
-    css = prettier,
-    scss = prettier,
-    graphql = prettier
-  },
+  formatters_by_ft = formatters_by_ft,
   format_on_save = function()
     if vim.g.disable_autoformat then
       return

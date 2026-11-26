@@ -1,9 +1,10 @@
 --- Treesitter ---
 --- Downloads and compiles any of these that are missing; then nothing
-require('nvim-treesitter').install({
-  'typescript', 'tsx', 'javascript', 'jsdoc', 'graphql', 'json', 'yaml', 'html', 'css', 'scss',
-  'sql', 'bash', 'dockerfile', 'diff', 'gitcommit', 'git_rebase', 'lua', 'luadoc',
-})
+local parsers = {}
+for _, lang in pairs(require('config.languages')) do
+  vim.list_extend(parsers, lang.parsers or {})
+end
+require('nvim-treesitter').install(parsers)
 
 --- Turn on highlighting and indent for every file type that has a parser
 vim.api.nvim_create_autocmd('FileType', {

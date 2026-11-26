@@ -1,12 +1,19 @@
 --- Language Servers ---
 require('mason').setup()   -- installer; also puts bin folder on nvim's PATH
-local ensure_installed = {
-  'vtsls', 'eslint-lsp', 'lua-language-server', 'json-lsp', 'yaml-language-server',
-  'graphql-language-service-cli', 'tailwindcss-language-server', 'prettier'
-}
+local servers, packages = {}, {}
+for _, lang in pairs(require('config.languages')) do
+  for server, pkg in pairs(lang.servers or {}) do
+    servers[server] = true
+    packages[pkg] = true
+  end
+  for _, pkg in pairs(lang.formatters or {}) do
+    packages[pkg] = true
+  end
+end
+
 local registry = require('mason-registry')
 registry.refresh(function()
-  for _, name in ipairs(ensure_installed) do
+  for name in pairs(packages) do
     local pkg = registry.get_package(name)
     if not pkg:is_installed() then
       pkg:install()
@@ -62,5 +69,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.enable({ 'vtsls', 'eslint', 'lua_ls', 'jsonls', 'yamlls', 'graphql', 'tailwindcss' })
+vim.lsp.enable(vim.tbl_keys(servers))
 vim.diagnostic.config({ virtual_text = true, severity_sort = true })
