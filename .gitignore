@@ -1,0 +1,8 @@
+# OS and editor junk
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Lua LSP workspace files generated per machine
+.luarc.json
