@@ -1,13 +1,17 @@
 --- Language Servers ---
-require('mason').setup()   -- installer; also puts bin folder on nvim's PATH
+require('mason').setup() -- installer; also puts bin folder on nvim's PATH
 local servers, packages = {}, {}
 for _, lang in pairs(require('config.languages')) do
   for server, pkg in pairs(lang.servers or {}) do
     servers[server] = true
-    if pkg then packages[pkg] = true end
+    if pkg then
+      packages[pkg] = true
+    end
   end
   for _, pkg in pairs(lang.formatters or {}) do
-    if pkg then packages[pkg] = true end
+    if pkg then
+      packages[pkg] = true
+    end
   end
 end
 
@@ -27,7 +31,7 @@ vim.lsp.config('sourcekit', { filetypes = { 'swift' } })
 vim.lsp.config('kotlin_lsp', { cmd = { 'kotlin-lsp', '--stdio' } })
 vim.lsp.config('vtsls', {
   settings = {
-    vtsls = { autoUseWorkspaceTsdk = true },   -- Use the repos typescript version
+    vtsls = { autoUseWorkspaceTsdk = true }, -- Use the repos typescript version
     typescript = {
       tsserver = { maxTsServerMemory = 8192 }, -- MB; default runs oom on large projects
       inlayHints = {

@@ -12,5 +12,10 @@ vim.keymap.set('n', '<leader>f.', fzf.resume, { desc = 'Reopen last picker' })
 vim.keymap.set('n', 'gd', fzf.lsp_definitions, { desc = 'Go to definition' })
 vim.keymap.set('n', 'grr', fzf.lsp_references, { desc = 'References', nowait = true })
 vim.keymap.set('n', '<leader>fc', fzf.colorschemes, { desc = 'Preview colour scheme' })
-vim.keymap.set('n', '<leader>fd', fzf.diagnostics_workspace, { desc = 'Diagnostics (all open files)' })
+vim.keymap.set(
+  'n',
+  '<leader>fd',
+  fzf.diagnostics_workspace,
+  { desc = 'Diagnostics (all open files)' }
+)
 vim.keymap.set('n', '<leader>fD', fzf.diagnostics_document, { desc = 'Diagnostics (this file)' })

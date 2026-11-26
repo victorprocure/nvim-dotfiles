@@ -1,6 +1,6 @@
 --- Editing helpers ---
 require('nvim-autopairs').setup({ check_ts = true }) --- use treesitter
-require('nvim-ts-autotag').setup()                   --- close and rename JSX/HTML
+require('nvim-ts-autotag').setup() --- close and rename JSX/HTML
 
 --- Surround: gsa add, gsd delete, gsr replace ---
 require('mini.surround').setup({
@@ -11,7 +11,7 @@ require('mini.surround').setup({
     find = 'gsf',
     find_left = 'gsF',
     highlight = 'gsh',
-  }
+  },
 })
 
 --- Jump: s, then two characters, then the label shown on the match ---

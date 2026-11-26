@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.hl.on_yank()
-  end
+  end,
 })
 
 --- Reload files changed on disk (by Claude, Git, etc.) when nvim regains focus

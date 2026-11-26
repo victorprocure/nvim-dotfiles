@@ -10,7 +10,8 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 })
 
 --- At startup, apply the saved scheme, falling back to default
-local saved = vim.fn.filereadable(theme_file) == 1 and vim.fn.readfile(theme_file)[1] or default_theme
+local saved = vim.fn.filereadable(theme_file) == 1 and vim.fn.readfile(theme_file)[1]
+  or default_theme
 if not pcall(vim.cmd.colorscheme, saved) then
   --- The saved theme no longer exists
   vim.cmd.colorscheme(default_theme)

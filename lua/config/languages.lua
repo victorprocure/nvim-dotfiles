@@ -11,7 +11,7 @@ return {
     formatters = { dart_format = false },
   },
   html = {
-    parsers = { 'html' }
+    parsers = { 'html' },
   },
   lua = {
     filetypes = { 'lua' },
@@ -59,7 +59,7 @@ return {
     filetypes = { 'json', 'jsonc' },
     parsers = { 'json' },
     servers = { jsonls = 'json-lsp' },
-    formatters = { prettier = 'prettier' }
+    formatters = { prettier = 'prettier' },
   },
   css = {
     filetypes = { 'css', 'scss' },
@@ -75,10 +75,10 @@ return {
   },
   yaml = {
     parsers = { 'yaml' },
-    servers = { yamlls = 'yaml-language-server' }
+    servers = { yamlls = 'yaml-language-server' },
   },
 
   other = {
-    parsers = { 'sql', 'bash', 'dockerfile', 'diff', 'gitcommit', 'git_rebase' }
+    parsers = { 'sql', 'bash', 'dockerfile', 'diff', 'gitcommit', 'git_rebase' },
   },
 }
