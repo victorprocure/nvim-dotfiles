@@ -31,6 +31,6 @@ vim.o.confirm = true                                -- :q with unsaved changes a
 vim.o.splitright = true                             -- new vertical splits open on the right
 vim.o.splitbelow = true                             -- new horizontal splits open below
 vim.o.updatetime = 250                              -- faster hover highlights and swap rights
-vim.foldmethod = 'expr'                             -- folds come from an expression...
+vim.o.foldmethod = 'expr'                           -- folds come from an expression...
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'  -- ... which asks treesitter for the structure
 vim.o.foldlevel = 99

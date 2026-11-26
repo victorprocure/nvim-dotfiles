@@ -1,5 +1,19 @@
 --- Language Servers ---
 require('mason').setup()   -- installer; also puts bin folder on nvim's PATH
+local ensure_installed = {
+  'vtsls', 'eslint-lsp', 'lua-language-server', 'json-lsp', 'yaml-language-server',
+  'graphql-language-service-cli', 'tailwindcss-language-server', 'prettier'
+}
+local registry = require('mason-registry')
+registry.refresh(function()
+  for _, name in ipairs(ensure_installed) do
+    local pkg = registry.get_package(name)
+    if not pkg:is_installed() then
+      pkg:install()
+    end
+  end
+end)
+
 require('lazydev').setup() -- teaches lua_ls about the nvim api
 
 vim.lsp.config('vtsls', {

@@ -1,6 +1,6 @@
 --- Claude ---
 require('claudecode').setup({
-  terminal_cmd = vim.fn.expand('~/.local/bin/claude'),
+  ---@diagnostic disable-next-line: missing-fields
   terminal = {
     provider = 'native', --- use nvims built-in terminal
     split_side = 'right',
@@ -10,7 +10,7 @@ require('claudecode').setup({
 vim.keymap.set('n', '<leader>ac', '<cmd>ClaudeCode<cr>', { desc = 'Toggle Claude' })
 vim.keymap.set('n', '<leader>af', '<cmd>ClaudeCodeFocus<cr>', { desc = 'Focus Claude' })
 vim.keymap.set('n', '<leader>ar', '<cmd>ClaudeCode --resume<cr>', { desc = 'Resume a Claude session' })
-vim.keymap.set('n', '<leader>ab', '<cmd>ClaueCodeAdd %<cr>', { desc = 'Add this file to Claude' })
+vim.keymap.set('n', '<leader>ab', '<cmd>ClaudeCodeAdd %<cr>', { desc = 'Add this file to Claude' })
 vim.keymap.set('x', '<leader>as', '<cmd>ClaudeCodeSend<cr>', { desc = 'Send selection to Claude' })
 vim.keymap.set('n', '<leader>aa', '<cmd>ClaudeCodeDiffAccept<cr>', { desc = 'Accept Claude diff' })
 vim.keymap.set('n', '<leader>ad', '<cmd>ClaudeCodeDiffDeny<cr>', { desc = 'Deny Claude diff' })

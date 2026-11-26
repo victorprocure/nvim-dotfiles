@@ -9,12 +9,12 @@ require('nvim-treesitter').install({
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(ev)
     -- vim.treesitter.start errors when there is no parser; pcall turns that to false
-    if pcall(vim.treesitter.start, ev.buf) then
+    if not pcall(vim.treesitter.start, ev.buf) then
       return
     end
     --- Only take over indenting when this language has indent rules installed
     local lang = vim.treesitter.language.get_lang(ev.match)
-    if lang and vim.treesitter.query.get(lang, 'idents') then
+    if lang and vim.treesitter.query.get(lang, 'indents') then
       vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
   end,

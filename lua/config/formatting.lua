@@ -17,7 +17,7 @@ require('conform').setup({
       return
     end
     --- lsp_format = 'never': only prettier formats, never a language server
-    return { timeout_ms = 2000, ls_format = 'never' }
+    return { timeout_ms = 2000, lsp_format = 'never' }
   end,
 })
 
