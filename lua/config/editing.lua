@@ -19,3 +19,7 @@ require('flash').setup()
 vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
   require('flash').jump()
 end, { desc = 'Jump on screen' })
+
+--- Undo tree: browse and restore any earlier version of this file ---
+vim.cmd.packadd('nvim.undotree')
+vim.keymap.set('n', '<leader>u', '<cmd>Undotree<cr>', { desc = 'Undo tree' })

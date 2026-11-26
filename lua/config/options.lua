@@ -3,6 +3,7 @@ vim.g.maplocalleader = '\\'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- stylua: ignore start
 --- Editor Look ---
 vim.o.number = true                                 -- Line numbers
 vim.o.relativenumber = true                         -- distances from the cursor, for 5j / 12k etc.
@@ -34,3 +35,4 @@ vim.o.updatetime = 250                              -- faster hover highlights a
 vim.o.foldmethod = 'expr'                           -- folds come from an expression...
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'  -- ... which asks treesitter for the structure
 vim.o.foldlevel = 99
+-- stylua: ignore end

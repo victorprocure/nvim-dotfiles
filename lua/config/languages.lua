@@ -10,6 +10,15 @@ return {
     servers = { dartls = false },
     formatters = { dart_format = false },
   },
+  html = {
+    parsers = { 'html' }
+  },
+  lua = {
+    filetypes = { 'lua' },
+    parsers = { 'lua', 'luaadoc' },
+    servers = { lua_ls = 'lua-language-server' },
+    formatters = { stylua = 'stylua' },
+  },
   java = {
     filetypes = { 'java' },
     parsers = { 'java' },
@@ -68,13 +77,7 @@ return {
     parsers = { 'yaml' },
     servers = { yamlls = 'yaml-language-server' }
   },
-  lua = {
-    parsers = { 'lua', 'luadoc' },
-    servers = { lua_ls = 'lua-language-server' },
-  },
-  html = {
-    parsers = { 'html' }
-  },
+
   other = {
     parsers = { 'sql', 'bash', 'dockerfile', 'diff', 'gitcommit', 'git_rebase' }
   },
