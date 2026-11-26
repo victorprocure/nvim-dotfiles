@@ -4,10 +4,10 @@ local servers, packages = {}, {}
 for _, lang in pairs(require('config.languages')) do
   for server, pkg in pairs(lang.servers or {}) do
     servers[server] = true
-    packages[pkg] = true
+    if pkg then packages[pkg] = true end
   end
   for _, pkg in pairs(lang.formatters or {}) do
-    packages[pkg] = true
+    if pkg then packages[pkg] = true end
   end
 end
 
@@ -23,6 +23,8 @@ end)
 
 require('lazydev').setup() -- teaches lua_ls about the nvim api
 
+vim.lsp.config('sourcekit', { filetypes = { 'swift' } })
+vim.lsp.config('kotlin_lsp', { cmd = { 'kotlin-lsp', '--stdio' } })
 vim.lsp.config('vtsls', {
   settings = {
     vtsls = { autoUseWorkspaceTsdk = true },   -- Use the repos typescript version

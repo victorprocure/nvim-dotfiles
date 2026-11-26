@@ -1,9 +1,39 @@
 --- Languages: the one place to add or remove supported languages ---
 --- filetypes: which buffers the formatters apply to
 --- parsers: treesitter grammars to install
---- servers: { lspconfig name = mason package }
---- formatters: { conform name = mason package }
+--- servers: { lspconfig name = mason package, or false if it comes with language SDK }
+--- formatters: { conform name = mason package, or false if it comes with language SDK }
 return {
+  dart = {
+    filetypes = { 'dart' },
+    parsers = { 'dart' },
+    servers = { dartls = false },
+    formatters = { dart_format = false },
+  },
+  java = {
+    filetypes = { 'java' },
+    parsers = { 'java' },
+    servers = { jdtls = 'jdtls' },
+    formatters = { ['google-java-format'] = 'google-java-format' },
+  },
+  kotlin = {
+    filetypes = { 'kotlin' },
+    parsers = { 'kotlin' },
+    servers = { kotlin_lsp = 'kotlin-lsp' },
+    formatters = { ktlint = 'ktlint' },
+  },
+  objc = {
+    filetypes = { 'objc', 'objcpp' },
+    parsers = { 'objc' },
+    servers = { clangd = 'clangd' },
+    formatters = { clang_format = 'clang-format' },
+  },
+  swift = {
+    filetypes = { 'swift' },
+    parsers = { 'swift' },
+    servers = { sourcekit = false },
+    formatters = { swiftformat = 'swiftformat' },
+  },
   typescript = {
     filetypes = { 'typescript', 'typescriptreact' },
     parsers = { 'typescript', 'tsx' },
