@@ -32,3 +32,7 @@ require('which-key').setup({
     { '<leader>t', group = 'toggle' },
   },
 })
+
+--- Breadcrumbs ---
+require('dropbar').setup()
+vim.keymap.set('n', '<leader>;', require('dropbar.api').pick, { desc = 'Pick a breadcrumb' })

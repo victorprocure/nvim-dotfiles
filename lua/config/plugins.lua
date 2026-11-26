@@ -25,6 +25,7 @@ vim.pack.add({
   'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
   'https://github.com/folke/persistence.nvim',
   'https://github.com/linrongbin16/gitlinker.nvim',
+  'https://github.com/Bekaboo/dropbar.nvim',
 
   --- Colour scheme shortlist
   'https://github.com/rebelot/kanagawa.nvim',
